@@ -1,6 +1,6 @@
 # Description
 
-Ceci est une page web pour le cours sur git
+Ceci est une page web pour le cours sur le DevOps
 
 ## Sommaire
 
