@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Licornes.com - Location de Licornes</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: #ff69b4;
+            color: white;
+            padding: 15px;
+            text-align: center;
+        }
+        nav {
+            display: flex;
+            justify-content: center;
+            background-color: #ff1493;
+        }
+        nav a {
+            color: white;
+            padding: 14px 20px;
+            text-decoration: none;
+            text-align: center;
+        }
+        nav a:hover {
+            background-color: #ff69b4;
+        }
+        .content {
+            padding: 20px;
+        }
+        .tabcontent {
+            display: none;
+        }
+        .tabcontent.active {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Licornes.com</h1>
+        <p>Spécialiste de la location de licornes</p>
+    </header>
+    <nav>
+        <a href="#services" class="tablink" onclick="openTab(event, 'services')">Nos Services</a>
+        <a href="#tarifs" class="tablink" onclick="openTab(event, 'tarifs')">Nos Tarifs</a>
+        <a href="#contact" class="tablink" onclick="openTab(event, 'contact')">Nous Contacter</a>
+    </nav>
+    <div class="content">
+        <div id="services" class="tabcontent active">
+            <h2>Nos Services</h2>
+            <p>Découvrez nos différents services de location de licornes pour tous vos événements magiques.</p>
+        </div>
+        <div id="tarifs" class="tabcontent">
+            <h2>Nos Tarifs</h2>
+            <p>Consultez nos tarifs compétitifs pour la location de licornes, adaptés à tous les budgets.</p>
+        </div>
+        <div id="contact" class="tabcontent">
+            <h2>Nous Contacter</h2>
+            <p>Pour toute question ou réservation, contactez-nous via le formulaire ci-dessous :</p>
+            <form action="submit_form.php" method="post">
+                <label for="name">Nom :</label>
+                <input type="text" id="name" name="name" required>
+                <br><br>
+                <label for="email">Email :</label>
+                <input type="email" id="email" name="email" required>
+                <br><br>
+                <label for="message">Message :</label>
+                <textarea id="message" name="message" rows="4" required></textarea>
+                <br><br>
+                <input type="submit" value="Envoyer">
+            </form>
+        </div>
+    </div>
+    <script>
+        function openTab(event, tabName) {
+            var i, tabcontent, tablinks;
+            tabcontent = document.getElementsByClassName("tabcontent");
+            for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].style.display = "none";
+            }
+            tablinks = document.getElementsByClassName("tablink");
+            for (i = 0; i < tablinks.length; i++) {
+                tablinks[i].className = tablinks[i].className.replace(" active", "");
+            }
+            document.getElementById(tabName).style.display = "block";
+            event.currentTarget.className += " active";
+        }
+        // Set default tab to open
+        document.addEventListener("DOMContentLoaded", function() {
+            document.getElementsByClassName("tablink")[0].click();
+        });
+    </script>
+</body>
+</html>
